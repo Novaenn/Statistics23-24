@@ -1,0 +1,49 @@
+Statistics is a branch of mathematics that deals with collecting, organizing, analyzing, interpreting and presenting data.
+Statistics is used in multiple disciplines such as physics or biology in order to analyze and draw conclusions on experimental data.
+Social Sciences also apply statistics in order to study and understand human behavior and economic trends.
+
+The difference between Descriptive Statistics and Inferential Statistics is that the former is concerned with summarizing and describing data while the latter is used to make conclusions on a larger set based on the sample.
+
+
+Population in statistics refers to a set of objects to describe and draw conclusions on while a Sample is a subset of the population for the purpose of more focused analysis.
+Sampling is also done to make data collection more efficient and cost-effective.
+
+An Attribute is a feature of a statistical unit in the population or sample, they can be quantitative or qualitative.
+A Variable, on the other hand, is a specific measurement that varies from one element to another.
+Variables are categorized based on the nature of the data they provide by their Level of Measurement.
+
+A Dataset is the result of a collection of data. It's usually displayed as a matrix where each row represents a unit and each column represents a characteristic.
+
+Sampling methods are techniques used to select a sample from a larger population.
+The main sampling methods are:
+    Random Sampling:
+        In Random Sampling each element in the population has an equal and independent chance of being selected for the sample.
+        It's used to eliminate bias and ensures that the sample is representative of the population.
+
+    Stratified Sampling:
+        It involves dividing the population into subgroups based on certain characteristics.
+        Random samples are then drawn from each subgroup in proportion to their size in the population.
+        It ensures that each subgroup is adequately represented in the sample.
+
+    Cluster Sampling:
+        Cluster sampling divides the population into clusters, and then a random sample of clusters is selected.
+        All elements within the selected clusters are included in the sample.
+
+    Convenience Sampling:
+        Convenience sampling involves selecting elements that are easy to access or readily available.
+
+    Snowball Sampling:
+        Snowball sampling is used for hard-to-reach or hidden populations.
+        It starts with one or a few participants who, in turn, refer additional participants.
+
+
+Experimental designs are structured approaches to conducting scientific experiments to investigate the effects of one or more independent variables on a dependent variable.
+Some examples are:
+    Pre-Post Test Design:
+    In this design, data is collected from the same group of subjects before and after an experimental treatment.
+
+    Post-Test Only Design:
+    This design involves collecting data from two separate groups: one that received the treatment and one that did not.
+
+    Controlled Experiment:
+    In a controlled experiment, the researcher manipulates one or more independent variables and observes their effects on a dependent variable.

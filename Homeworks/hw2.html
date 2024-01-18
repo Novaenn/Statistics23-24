@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSV File Reader</title>
+  </head>
+  <body>
+    <h1>Homework 2 Samuele Bella 1942308</h1>
+    <input type="file" id="csvFile" accept=".csv" />
+    <div id="output"></div>
+
+    <script>
+      var indexSex = 0;
+      var Sex = {};
+      var indexHW = 0;
+      var Hard_Worker = {};
+      var indexAge = 0;
+      var Age = {};
+
+      var jointDistr = {};
+
+      document
+        .getElementById("csvFile")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+              const contents = event.target.result;
+              computeFrequency(contents);
+            };
+            reader.readAsText(file);
+          }
+        });
+
+      function computeFrequency(csv) {
+        const lines = csv.split("\n");
+
+        first_line_splitted = lines[0].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        for (let i = 0; i < first_line_splitted.length; i++) {
+          if (first_line_splitted[i] == "Age") {
+            indexAge = i;
+          } else if (first_line_splitted[i] == "Sex") {
+            indexSex = i;
+          } else if (first_line_splitted[i] == "Hard Worker (0-5)") {
+            indexHW = i;
+          }
+        }
+
+        for (let i = 1; i < lines.length; i++) {
+          const cells = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+          if (!(cells[indexSex] in Sex)) {
+            Sex[cells[indexSex]] = 1;
+          } else {
+            Sex[cells[indexSex]] += 1;
+          }
+
+          if (!(cells[indexHW] in Hard_Worker)) {
+            Hard_Worker[cells[indexHW]] = 1;
+          } else {
+            Hard_Worker[cells[indexHW]] += 1;
+          }
+
+          if (!(cells[indexAge] in Age)) {
+            Age[cells[indexAge]] = 1;
+          } else {
+            Age[cells[indexAge]] += 1;
+          }
+
+          if (!(cells[indexAge] + " <-> " + cells[indexSex] in jointDistr)) {
+            jointDistr[cells[indexAge] + " <-> " + cells[indexSex]] = 1;
+          } else {
+            jointDistr[cells[indexAge] + " <-> " + cells[indexSex]] += 1;
+          }
+        }
+
+        let incr = 0;
+        for (o of [Age, Sex, Hard_Worker, jointDistr]) {
+          var table = document.createElement("table");
+          var caption = document.createElement("caption");
+          caption.style.backgroundColor = "#3630a3";
+          caption.style.color = "white";
+          caption.style.padding = "5px";
+          if (incr == 0) {
+            caption.textContent = "Age";
+          } else if (incr == 1) {
+            caption.textContent = "Sex";
+          } else if (incr == 2) {
+            caption.textContent = "Hard Worker";
+          } else {
+            caption.textContent = "Joint Distribution (Age <-> Sex)";
+          }
+          table.appendChild(caption);
+          table.id = incr;
+          table.border = "1";
+          table.style.display = "inline-table";
+          table.style.margin = "10px";
+          var tr = document.createElement("tr");
+
+          var th0 = document.createElement("th");
+          var th1 = document.createElement("th");
+          var th2 = document.createElement("th");
+          var th3 = document.createElement("th");
+
+          th0.textContent = "Value";
+          tr.appendChild(th0);
+          th1.textContent = "Absolute frequency";
+          tr.appendChild(th1);
+          th2.textContent = "Relative frequency";
+          tr.appendChild(th2);
+          th3.textContent = "Percentage frequency";
+          tr.appendChild(th3);
+          table.appendChild(tr);
+
+          for (k in o) {
+            var trTmp = document.createElement("tr");
+            var td1 = document.createElement("td");
+            td1.textContent = k;
+            td1.style.color = "red";
+            trTmp.appendChild(td1);
+
+            var td2 = document.createElement("td");
+            td2.textContent = o[k];
+            td2.style.textAlign = "right";
+            trTmp.appendChild(td2);
+
+            var td3 = document.createElement("td");
+            td3.textContent = o[k] / lines.length;
+            td3.style.textAlign = "right";
+            trTmp.appendChild(td3);
+
+            var td4 = document.createElement("td");
+            td4.textContent = Math.floor((o[k] / lines.length) * 100) + "%";
+            td4.style.textAlign = "right";
+            trTmp.appendChild(td4);
+
+            table.appendChild(trTmp);
+          }
+          document.getElementById("output").appendChild(table);
+          incr += 1;
+        }
+      }
+    </script>
+  </body>
+</html>

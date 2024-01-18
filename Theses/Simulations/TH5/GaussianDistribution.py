@@ -10,7 +10,7 @@ std_dev = 1
 data = np.random.normal(mean, std_dev, num_samples)
 
 # Plot the histogram
-plt.hist(data, bins = 50, density = True, color='green', edgecolor='black')
+plt.hist(data, bins = 50, density = True, color='green', edgecolor='black', alpha=0.7)
 
 # Plot the gaussian probability density function
 xmin, xmax = plt.xlim()

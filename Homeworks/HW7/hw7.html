@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 7</title>
+    <title>Homework 7 Samuele Bella 1942308</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script
-      src="./View/Forms/Utilities/SDEFormCSSClassesNames.js"
-      defer
-    ></script>
-    <script src="./View/Forms/BernoulliForm.js" defer></script>
-    <script src="./View/Forms/ArithmeticBrownianForm.js" defer></script>
-    <script src="./View/Forms/GeometricBrownianForm.js" defer></script>
-    <script src="./View/Forms/RandomWalk.js" defer></script>
-    <script src="./View/Forms/Utilities/ShowForm.js" defer></script>
-    <script src="./View/Forms/OrnsteinUhlenbeck.js" defer></script>
-    <script src="View/Forms/Vasicek.js" defer></script>
-    <script src="View/Forms/HullWhite.js" defer></script>
-    <script src="View/Forms/CoxIngersollRoss.js" defer></script>
-    <script src="View/Forms/BlackKarasinski.js" defer></script>
-    <link rel="stylesheet" href="./View/CSS/FormStyle.css" />
+    <script src="SDE/Utilities/SDEFormCSSClassesNames.js" defer></script>
+    <script src="SDE/BernoulliForm.js" defer></script>
+    <script src="SDE/ArithmeticBrownianForm.js" defer></script>
+    <script src="SDE/GeometricBrownianForm.js" defer></script>
+    <script src="SDE/RandomWalk.js" defer></script>
+    <script src="SDE/Utilities/ShowForm.js" defer></script>
+    <script src="SDE/OrnsteinUhlenbeck.js" defer></script>
+    <script src="SDE/Vasicek.js" defer></script>
+    <script src="SDE/HullWhite.js" defer></script>
+    <script src="SDE/CoxIngersollRoss.js" defer></script>
+    <script src="SDE/BlackKarasinski.js" defer></script>
+    <link rel="stylesheet" href="hw7.css" />
   </head>
   <body>
     <h1>Homework 7</h1>
@@ -48,12 +45,16 @@
       <label>Number of systems</label>
       <input type="number" id="M" value="10" min="0" />
     </form>
-    <button onclick="check()">Start Attacks!</button>
+    <button
+      onclick="check(); window.scrollTo(0, document.getElementById('scoreCanvas').offsetTop)"
+    >
+      Start Attacks!
+    </button>
     <canvas
       id="scoreCanvas"
       width="1500"
       height="600"
-      style="border: 2px solid black"
+      style="border: 2px solid #d65d0e"
     ></canvas>
     <script>
       "use strict";

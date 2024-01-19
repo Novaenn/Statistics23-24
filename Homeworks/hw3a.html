@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attack Generator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hw3.css" />
   </head>
 
   <body>
-    <h1>Homework 3</h1>
+    <title>Homework 3 Samuele Bella 1942308</title>
     <div class="container">
       <p>
         <label for="M">Number of Systems (M):</label>
@@ -20,7 +20,7 @@
         <input id="N" type="number" value="10" min="1" step="1" />
       </p>
       <p>
-        <label for="p">Probability of successfull attack (P): </label>
+        <label for="p">Probability of successful attack (P): </label>
         <input id="p" type="number" value="0.3" min="0" max="1" step="0.1" />
       </p>
       <p>
@@ -38,23 +38,37 @@
 
     <div style="display: flex">
       <div style="width: 50%">
-        <canvas id="myCanvas"></canvas>
+        <canvas id="myCanvas" style="border: 2px solid #ebdbb2"></canvas>
       </div>
       <canvas
         id="histogramChart"
-        style="width: 50%; max-width: 700px; margin: 5px"
+        style="
+          width: 50%;
+          max-width: 700px;
+          margin: 5px;
+          border: 2px solid #ebdbb2;
+        "
       ></canvas>
     </div>
     <div style="display: flex">
-      <div class="canvas-wrapper">
+      <div
+        class="canvas-wrapper"
+        style="border: 2px solid #ebdbb2; margin: 5px"
+      >
         <h3>Frequency:</h3>
         <canvas id="myCanvas2"></canvas>
       </div>
-      <div class="canvas-wrapper">
+      <div
+        class="canvas-wrapper"
+        style="border: 2px solid #ebdbb2; margin: 5px"
+      >
         <h3>Relative frequency:</h3>
         <canvas id="myCanvas3"></canvas>
       </div>
-      <div class="canvas-wrapper">
+      <div
+        class="canvas-wrapper"
+        style="border: 2px solid #ebdbb2; margin: 5px"
+      >
         <h3>Normalized ratio:</h3>
         <canvas id="myCanvas4"></canvas>
       </div>
@@ -283,6 +297,7 @@
       // Get the canvas histogram element
 
       CalculateFrequencyHistogram();
+      // The histogram represents the frequency of the last attack and the frequency of the nth attack
       function CalculateFrequencyHistogram() {
         xAxesHistogram = [];
         yAxesHistogram = [];
